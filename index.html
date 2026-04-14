@@ -300,6 +300,12 @@
       display: block;
     }
 
+    .fold-option .fold-label {
+      font-size: 11px;
+      color: #888;
+      margin-top: 4px;
+    }
+
     /* ── RATING ── */
     .rating-row {
       display: flex;
@@ -548,11 +554,11 @@
       </div>
 
       <!-- Reference design -->
-      <h3 style="margin-top:28px;">Example of a valid solution</h3>
-      <p style="font-size:13px;color:#666;">The image below shows the current solution, which violates the one angle only condition.</p>
+      <h3 style="margin-top:28px;">Current design — not a valid solution</h3>
+      <p style="font-size:13px;color:#e04000;"><strong>⚠️ This design violates the constraints</strong> — it uses more than one fold angle. Can you do better?</p>
 
       <!-- Render image — swap src when you have the CAD render -->
-      <img id="render-img" src="" alt="Current solution">
+      <img id="render-img" src="" alt="Example of a valid solution">
       <div class="render-placeholder" id="render-placeholder">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
           <rect x="16" y="16" width="32" height="32" stroke="#143AFF" stroke-width="2"/>
@@ -563,7 +569,7 @@
         <span>CAD render will appear here</span>
         <span style="font-size:11px;margin-top:4px;">Replace src in &lt;img id="render-img"&gt;</span>
       </div>
-      <p class="render-label">Top view — current solution</p>
+      <p class="render-label">This design is <strong>invalid</strong> — multiple fold angles used</p>
 
       <!-- Constraints -->
       <h3 style="margin-top:8px;">Your task</h3>
@@ -631,11 +637,58 @@
     </div>
   </div>
 
-  <!-- SCREEN 2: Summary -->
+  <!-- SCREEN 2: Minimum estimation -->
+  <div class="screen" id="screen-2">
+    <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
+      <div class="step-indicator">
+        <div class="step-dot done"></div>
+        <div class="step-dot done"></div>
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+      </div>
+      <h2>Step 2 — Reflect</h2>
+      <div class="accent-line"></div>
 
+      <p>Think about the task from scratch — starting from a flat A4 sheet.</p>
+
+      <div class="input-group" style="margin-top:20px;">
+        <label>What is the minimum number of folds needed to produce a valid solution?</label>
+        <div class="folds-selector" id="folds-min-selector">
+          <div class="fold-option" onclick="selectFold('min',1,this)"><span class="fold-num">1</span></div>
+          <div class="fold-option" onclick="selectFold('min',2,this)"><span class="fold-num">2</span></div>
+          <div class="fold-option" onclick="selectFold('min',3,this)"><span class="fold-num">3</span></div>
+          <div class="fold-option" onclick="selectFold('min',4,this)"><span class="fold-num">4</span></div>
+          <div class="fold-option" onclick="selectFold('min',5,this)"><span class="fold-num">5+</span></div>
+        </div>
+        <p class="error-msg" id="folds-min-error">Please select your estimate.</p>
+      </div>
+
+      <div class="input-group">
+        <label>What shape does the minimum solution produce?</label>
+        <select id="min-shape">
+          <option value="">— select —</option>
+          <option value="tent">Tent / A-frame (1 fold)</option>
+          <option value="triangle">Triangular column (2 folds)</option>
+          <option value="square">Square column (3 folds)</option>
+          <option value="pentagon">Pentagonal column (4 folds)</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Would you change your design if cost per fold was shown upfront? Why?</label>
+        <textarea id="reflection" placeholder="Your thoughts..." rows="3"></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="goToScreen(1)">← Back</button>
+        <button class="btn btn-primary" onclick="goToScreen(3)">Next →</button>
+      </div>
+    </div>
+  </div>
 
   <!-- SCREEN 3: Submit -->
-  <div class="screen" id="screen-2">
+  <div class="screen" id="screen-3">
     <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
       <div class="step-indicator">
         <div class="step-dot done"></div>
@@ -652,7 +705,7 @@
       <p style="font-size:13px;color:#888;">Your response will be saved anonymously for research purposes.</p>
 
       <div class="btn-row">
-        <button class="btn btn-outline" onclick="goToScreen(1)">← Back</button>
+        <button class="btn btn-outline" onclick="goToScreen(2)">← Back</button>
         <button class="btn btn-turquoise" id="submit-btn" onclick="submitResponse()">Submit response</button>
       </div>
 
@@ -661,7 +714,7 @@
   </div>
 
   <!-- SCREEN 4: Thank you -->
-  <div class="screen" id="screen-3">
+  <div class="screen" id="screen-4">
     <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
       <div class="thank-you-box">
         <h2>Thank you! 🎉</h2>
@@ -748,8 +801,8 @@
 // ══════════════════════════════════════════════════════════════
 // CONFIG — paste your Supabase credentials here
 // ══════════════════════════════════════════════════════════════
-const SUPABASE_URL  = 'YOUR_SUPABASE_URL';    // e.g. https://xxxx.supabase.co
-const SUPABASE_KEY  = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL  = 'https://uyynxszpmtwfxmnwirjn.supabase.co';    // e.g. https://xxxx.supabase.co
+const SUPABASE_KEY  = 'sb_publishable_urtblTmp0Y9ikKCBm-Forg_azXo9iQ6';
 const GAME_KEY      = 'odce_folding_task_v1';
 const TABLE         = 'folding_responses';
 
@@ -820,6 +873,13 @@ function validateScreen(n) {
     else hideError('confidence-error');
     state.description = document.getElementById('description').value.trim();
   }
+  if (n === 2) {
+    state.foldsMin  = state.foldsMin || null;
+    if (!state.foldsMin) { showError('folds-min-error'); ok = false; }
+    else hideError('folds-min-error');
+    state.minShape  = document.getElementById('min-shape').value;
+    state.reflection = document.getElementById('reflection').value.trim();
+  }
 
   return ok;
 }
@@ -841,7 +901,7 @@ function selectFold(type, val, el) {
   container.querySelectorAll('.fold-option').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
   if (type === 'made') state.foldsMade = val;
-  if (type === 'min')  null;
+  if (type === 'min')  state.foldsMin  = val;
 }
 
 function selectRating(type, val, el) {
@@ -877,16 +937,19 @@ async function submitResponse() {
     game_key:    GAME_KEY,
     nickname:    state.nickname,
     folds_made:  state.foldsMade,
-                description: state.description,
+    folds_min:   state.foldsMin,
+    bias_score:  state.foldsMade - state.foldsMin,
+    min_shape:   state.minShape,
+    description: state.description,
     confidence:  state.confidence,
-    reflection:  '',
+    reflection:  state.reflection,
     created_at:  new Date().toISOString()
   };
 
   let saved = false;
 
   // Try Supabase
-  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
     try {
       const { error } = await db.from(TABLE).insert(payload);
       if (!error) saved = true;
@@ -902,7 +965,7 @@ async function submitResponse() {
   }
 
   if (saved) {
-    goToScreen(3);
+    goToScreen(4);
   } else {
     document.getElementById('submit-error').style.display = 'block';
     btn.disabled = false;
@@ -917,7 +980,7 @@ function initHostPanel() {
   loadResponses();
 
   // Real-time if Supabase configured
-  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
     db.channel('folding-responses')
       .on('postgres_changes', { event: 'INSERT', schema: 'public', table: TABLE }, () => {
         loadResponses();
@@ -932,7 +995,7 @@ function initHostPanel() {
 async function loadResponses() {
   let data = [];
 
-  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
     const { data: rows } = await db.from(TABLE)
       .select('*')
       .eq('game_key', GAME_KEY)
@@ -994,7 +1057,7 @@ function copyStudentLink() {
 
 function exportCSV() {
   let data = [];
-  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
     alert('Export from Supabase dashboard: Table Editor → folding_responses → Export');
     return;
   }
@@ -1011,7 +1074,7 @@ function exportCSV() {
 
 function resetData() {
   if (!confirm('Reset ALL responses? This cannot be undone.')) return;
-  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
     db.from(TABLE).delete().eq('game_key', GAME_KEY).then(() => loadResponses());
   } else {
     localStorage.removeItem(GAME_KEY);
