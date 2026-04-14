@@ -589,7 +589,7 @@
     </div>
   </div>
 
-  <!-- SCREEN 1: Build + record -->
+  <!-- SCREEN 1: Build -->
   <div class="screen" id="screen-1">
     <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
       <div class="step-indicator">
@@ -597,11 +597,41 @@
         <div class="step-dot active"></div>
         <div class="step-dot"></div>
       </div>
-      <h2>Step 1 — Build your structure</h2>
+      <h2>Build your structure now</h2>
       <div class="accent-line"></div>
-      <p>Use the A4 sheet of paper to fold your structure now. When you are done, record what you made below.</p>
+      <p>Use the A4 sheet of paper you have received to fold a standing structure.</p>
 
-      <div class="input-group" style="margin-top:24px;">
+      <div class="constraint-box">
+        <ul>
+          <li>Only <strong>one fold angle</strong> is allowed — every fold must be at the same angle</li>
+          <li>The structure must be able to <strong>support an A5 sheet placed flat on top</strong></li>
+          <li>Each fold costs <strong>€0.85 per unit</strong> in production — keep this in mind</li>
+        </ul>
+      </div>
+
+      <p style="font-size:14px;color:#555;">Take your time. When your structure is ready, move to the next step.</p>
+
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="goToScreen(0)">← Back</button>
+        <button class="btn btn-primary" onclick="goToScreen(2)">I'm done — record my response →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: All questions + Submit -->
+  <div class="screen" id="screen-2">
+    <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
+      <div class="step-indicator">
+        <div class="step-dot done"></div>
+        <div class="step-dot done"></div>
+        <div class="step-dot active"></div>
+      </div>
+      <h2>Record your response</h2>
+      <div class="accent-line"></div>
+
+      <h3>Part A — What you built</h3>
+
+      <div class="input-group" style="margin-top:16px;">
         <label>How many folds did you make?</label>
         <div class="folds-selector" id="folds-made-selector">
           <div class="fold-option" onclick="selectFold('made',1,this)"><span class="fold-num">1</span></div>
@@ -611,11 +641,6 @@
           <div class="fold-option" onclick="selectFold('made',5,this)"><span class="fold-num">5+</span></div>
         </div>
         <p class="error-msg" id="folds-made-error">Please select the number of folds.</p>
-      </div>
-
-      <div class="input-group">
-        <label>Describe your structure in one sentence</label>
-        <textarea id="description" placeholder="Describe what you made and why you chose that number of folds." rows="2"></textarea>
       </div>
 
       <div class="input-group">
@@ -630,29 +655,18 @@
         <p class="error-msg" id="confidence-error">Please rate your confidence.</p>
       </div>
 
-      <div class="btn-row">
-        <button class="btn btn-outline" onclick="goToScreen(0)">← Back</button>
-        <button class="btn btn-primary" onclick="goToScreen(2)">Next →</button>
+      <div class="input-group">
+        <label>Describe your structure in one sentence</label>
+        <textarea id="description" placeholder="Describe what you made and why you chose that number of folds." rows="2"></textarea>
       </div>
-    </div>
-  </div>
 
-  <!-- SCREEN 2: Minimum estimation -->
-  <div class="screen" id="screen-2">
-    <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
-      <div class="step-indicator">
-        <div class="step-dot done"></div>
-        <div class="step-dot done"></div>
-        <div class="step-dot active"></div>
-        <div class="step-dot"></div>
-      </div>
-      <h2>Step 2 — Reflect</h2>
-      <div class="accent-line"></div>
+      <div class="divider"></div>
 
-      <p>Think about the task from scratch — starting from a flat A4 sheet.</p>
+      <h3>Part B — Minimum possible folds</h3>
+      <p style="font-size:14px;color:#555;margin-top:8px;">Think about the task from scratch — what is the theoretical minimum number of folds for a valid solution?</p>
 
-      <div class="input-group" style="margin-top:20px;">
-        <label>What is the minimum number of folds needed to produce a valid solution?</label>
+      <div class="input-group" style="margin-top:16px;">
+        <label>Minimum number of folds needed for a valid solution?</label>
         <div class="folds-selector" id="folds-min-selector">
           <div class="fold-option" onclick="selectFold('min',1,this)"><span class="fold-num">1</span></div>
           <div class="fold-option" onclick="selectFold('min',2,this)"><span class="fold-num">2</span></div>
@@ -676,58 +690,29 @@
       </div>
 
       <div class="input-group">
-        <label>Would you change your design if cost per fold was shown upfront? Why?</label>
+        <label>Would you change your design if the cost per fold was shown upfront? Why?</label>
         <textarea id="reflection" placeholder="Your thoughts..." rows="3"></textarea>
       </div>
 
+      <p style="font-size:13px;color:#888;margin-top:8px;">Your response will be saved anonymously for research purposes.</p>
+
       <div class="btn-row">
         <button class="btn btn-outline" onclick="goToScreen(1)">← Back</button>
-        <button class="btn btn-primary" onclick="goToScreen(3)">Next →</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCREEN 3: Submit -->
-  <div class="screen" id="screen-3">
-    <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
-      <div class="step-indicator">
-        <div class="step-dot done"></div>
-        <div class="step-dot done"></div>
-        <div class="step-dot done"></div>
-        <div class="step-dot active"></div>
-      </div>
-      <h2>Submit your response</h2>
-      <div class="accent-line"></div>
-
-      <div id="summary-box" style="background:var(--gray);border-radius:10px;padding:20px 24px;margin-bottom:24px;font-size:14px;line-height:2;">
-      </div>
-
-      <p style="font-size:13px;color:#888;">Your response will be saved anonymously for research purposes.</p>
-
-      <div class="btn-row">
-        <button class="btn btn-outline" onclick="goToScreen(2)">← Back</button>
         <button class="btn btn-turquoise" id="submit-btn" onclick="submitResponse()">Submit response</button>
       </div>
-
       <p class="error-msg" id="submit-error" style="display:none;margin-top:12px;">Submission failed. Please try again.</p>
     </div>
   </div>
 
-  <!-- SCREEN 4: Thank you -->
-  <div class="screen" id="screen-4">
+  <!-- SCREEN 3: Thank you -->
+  <div class="screen" id="screen-3">
     <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
       <div class="thank-you-box">
         <h2>Thank you! 🎉</h2>
         <p style="margin-top:12px;">Your response has been recorded.<br>We will discuss the results together shortly.</p>
       </div>
       <div style="margin-top:32px;background:var(--gray);border-radius:10px;padding:20px 24px;">
-        <h3>Did you know?</h3>
-        <p style="font-size:14px;margin-top:8px;">
-          Research by Adams et al. (2021, <em>Nature</em>) shows that people systematically
-          overlook subtractive solutions — even when they are simpler and cheaper.
-          The minimum valid solution to this task requires only <strong>1 fold</strong>.
-          At 1,000 units, choosing 3 folds over 1 costs an extra <strong>€1,700</strong> per 1,000 units.
-        </p>
+        <p style="font-size:13px;color:#888;margin:0;">You can close this tab or wait for the group discussion.</p>
       </div>
     </div>
   </div>
@@ -735,9 +720,6 @@
 </div><!-- /student-view -->
 
 
-<!-- ══════════════════════════════════════════════════════════ -->
-<!-- HOST PANEL                                                 -->
-<!-- ══════════════════════════════════════════════════════════ -->
 <div id="host-view" style="display:none;">
   <div class="host-header">
     <span>🎛️ Host Panel — Folding Task</span>
@@ -857,8 +839,6 @@ function goToScreen(n) {
   document.getElementById('screen-' + n).classList.add('active');
   currentScreen = n;
   window.scrollTo(0, 0);
-
-  if (n === 3) buildSummary();
 }
 
 function validateScreen(n) {
@@ -866,21 +846,18 @@ function validateScreen(n) {
   if (n === 0) {
     state.nickname = 'anonymous';
   }
-  if (n === 1) {
+  // screen-1 is build instruction only — no validation
+  if (n === 2) {
     if (!state.foldsMade) { showError('folds-made-error'); ok = false; }
     else hideError('folds-made-error');
     if (!state.confidence) { showError('confidence-error'); ok = false; }
     else hideError('confidence-error');
     state.description = document.getElementById('description').value.trim();
-  }
-  if (n === 2) {
-    state.foldsMin  = state.foldsMin || null;
     if (!state.foldsMin) { showError('folds-min-error'); ok = false; }
     else hideError('folds-min-error');
-    state.minShape  = document.getElementById('min-shape').value;
+    state.minShape   = document.getElementById('min-shape').value;
     state.reflection = document.getElementById('reflection').value.trim();
   }
-
   return ok;
 }
 
@@ -965,7 +942,7 @@ async function submitResponse() {
   }
 
   if (saved) {
-    goToScreen(4);
+    goToScreen(3);
   } else {
     document.getElementById('submit-error').style.display = 'block';
     btn.disabled = false;
