@@ -1,34 +1,3 @@
-<!--
-=======================================================================
-  SUPABASE SETUP — run this SQL once in your Supabase SQL Editor
-  (Dashboard → SQL Editor → New query → paste → Run)
-=======================================================================
-
-  create table folding_responses (
-    id          uuid default gen_random_uuid() primary key,
-    game_key    text not null,
-    nickname    text,
-    folds_made  integer,
-    folds_min   integer,
-    bias_score  integer,
-    min_shape   text,
-    confidence  integer,
-    description text,
-    reflection  text,
-    created_at  timestamptz default now()
-  );
-
-  -- Row-level security (allows public read/write/delete for class use)
-  alter table folding_responses enable row level security;
-
-  create policy "Public read"   on folding_responses for select using (true);
-  create policy "Public insert" on folding_responses for insert with check (true);
-  create policy "Public delete" on folding_responses for delete using (true);
-
-  -- Enable Realtime for the host panel live updates
-  -- Dashboard → Database → Replication → supabase_realtime → add folding_responses
-=======================================================================
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -579,11 +548,11 @@
       </div>
 
       <!-- Reference design -->
-      <h3 style="margin-top:28px;">Current solution</h3>
-      <p style="font-size:13px;color:#666;">The image below shows the current solution, that violated the same angle condition. </p>
+      <h3 style="margin-top:28px;">Example of a valid solution</h3>
+      <p style="font-size:13px;color:#666;">The image below shows the current solution, which violates the one angle only condition.</p>
 
       <!-- Render image — swap src when you have the CAD render -->
-      <img id="render-img" src="" alt="Example of a valid solution">
+      <img id="render-img" src="" alt="Current solution">
       <div class="render-placeholder" id="render-placeholder">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
           <rect x="16" y="16" width="32" height="32" stroke="#143AFF" stroke-width="2"/>
@@ -594,7 +563,7 @@
         <span>CAD render will appear here</span>
         <span style="font-size:11px;margin-top:4px;">Replace src in &lt;img id="render-img"&gt;</span>
       </div>
-      <p class="render-label">Top view — Current solution</p>
+      <p class="render-label">Top view — current solution</p>
 
       <!-- Constraints -->
       <h3 style="margin-top:8px;">Your task</h3>
@@ -683,7 +652,7 @@
       <p style="font-size:13px;color:#888;">Your response will be saved anonymously for research purposes.</p>
 
       <div class="btn-row">
-        <button class="btn btn-outline" onclick="goToScreen(2)">← Back</button>
+        <button class="btn btn-outline" onclick="goToScreen(1)">← Back</button>
         <button class="btn btn-turquoise" id="submit-btn" onclick="submitResponse()">Submit response</button>
       </div>
 
@@ -692,7 +661,7 @@
   </div>
 
   <!-- SCREEN 4: Thank you -->
-  <div class="screen" id="screen-2">
+  <div class="screen" id="screen-3">
     <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
       <div class="thank-you-box">
         <h2>Thank you! 🎉</h2>
@@ -777,12 +746,10 @@
 
 <script>
 // ══════════════════════════════════════════════════════════════
-// ✏️  STEP 1 — Paste your Supabase credentials below
-//    Project URL  → Supabase dashboard → Project Settings → API
-//    Anon Key     → same page, "anon / public" key
+// CONFIG — paste your Supabase credentials here
 // ══════════════════════════════════════════════════════════════
-const SUPABASE_URL  = 'https://uyynxszpmtwfxmnwirjn.supabase.co';    // e.g. https://xxxx.supabase.co
-const SUPABASE_KEY  = 'sb_publishable_urtblTmp0Y9ikKCBm-Forg_azXo9iQ6'; // anon/public key (safe for client)
+const SUPABASE_URL  = 'YOUR_SUPABASE_URL';    // e.g. https://xxxx.supabase.co
+const SUPABASE_KEY  = 'YOUR_SUPABASE_ANON_KEY';
 const GAME_KEY      = 'odce_folding_task_v1';
 const TABLE         = 'folding_responses';
 
@@ -919,7 +886,7 @@ async function submitResponse() {
   let saved = false;
 
   // Try Supabase
-  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
+  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
     try {
       const { error } = await db.from(TABLE).insert(payload);
       if (!error) saved = true;
@@ -935,7 +902,7 @@ async function submitResponse() {
   }
 
   if (saved) {
-    goToScreen(2);
+    goToScreen(3);
   } else {
     document.getElementById('submit-error').style.display = 'block';
     btn.disabled = false;
@@ -950,7 +917,7 @@ function initHostPanel() {
   loadResponses();
 
   // Real-time if Supabase configured
-  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
+  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
     db.channel('folding-responses')
       .on('postgres_changes', { event: 'INSERT', schema: 'public', table: TABLE }, () => {
         loadResponses();
@@ -965,7 +932,7 @@ function initHostPanel() {
 async function loadResponses() {
   let data = [];
 
-  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
+  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
     const { data: rows } = await db.from(TABLE)
       .select('*')
       .eq('game_key', GAME_KEY)
@@ -1027,7 +994,7 @@ function copyStudentLink() {
 
 function exportCSV() {
   let data = [];
-  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
+  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
     alert('Export from Supabase dashboard: Table Editor → folding_responses → Export');
     return;
   }
@@ -1044,7 +1011,7 @@ function exportCSV() {
 
 function resetData() {
   if (!confirm('Reset ALL responses? This cannot be undone.')) return;
-  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
+  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
     db.from(TABLE).delete().eq('game_key', GAME_KEY).then(() => loadResponses());
   } else {
     localStorage.removeItem(GAME_KEY);
