@@ -926,7 +926,7 @@ async function submitResponse() {
   let saved = false;
 
   // Try Supabase
-  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
+  if (db) {
     try {
       const { error } = await db.from(TABLE).insert(payload);
       if (!error) saved = true;
@@ -957,7 +957,7 @@ function initHostPanel() {
   loadResponses();
 
   // Real-time if Supabase configured
-  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
+  if (db) {
     db.channel('folding-responses')
       .on('postgres_changes', { event: 'INSERT', schema: 'public', table: TABLE }, () => {
         loadResponses();
@@ -972,7 +972,7 @@ function initHostPanel() {
 async function loadResponses() {
   let data = [];
 
-  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
+  if (db) {
     const { data: rows } = await db.from(TABLE)
       .select('*')
       .eq('game_key', GAME_KEY)
@@ -1034,7 +1034,7 @@ function copyStudentLink() {
 
 function exportCSV() {
   let data = [];
-  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
+  if (db) {
     alert('Export from Supabase dashboard: Table Editor → folding_responses → Export');
     return;
   }
@@ -1051,7 +1051,7 @@ function exportCSV() {
 
 function resetData() {
   if (!confirm('Reset ALL responses? This cannot be undone.')) return;
-  if (db && SUPABASE_URL !== 'https://uyynxszpmtwfxmnwirjn.supabase.co') {
+  if (db) {
     db.from(TABLE).delete().eq('game_key', GAME_KEY).then(() => loadResponses());
   } else {
     localStorage.removeItem(GAME_KEY);
