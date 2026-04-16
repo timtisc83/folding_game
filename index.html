@@ -515,16 +515,10 @@
 
 <!-- HEADER -->
 <div class="header">
-  <div class="odce-logo" style="display:flex;align-items:center;gap:12px;">
-    <div style="height:38px;width:auto;display:flex;align-items:center;">
-      <svg viewBox="0 0 96.605103 82.199448" height="38" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><path style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.5875;stroke-linecap:round;stroke-linejoin:round;" d="m -116.43796,230.55898 59.621691,0.26104 h 6.8089 l 27.00638,-23.65599 v -50.64865 l -38.93207,0.22247 -54.504901,21.22023 z" transform="translate(117.23172,-149.41432)" /><g aria-label="ODCE" style="font-weight:bold;font-size:19.7556px;font-family:'BC Novatica TEST';fill:#ffffff;" transform="translate(117.23172,-149.41432)"><path d="m -102.06223,223.39662 c 4.504274,0 7.270058,-2.6275 7.270058,-7.32933 0,-4.70183 -2.765784,-7.32933 -7.270058,-7.32933 -4.52404,0 -7.28982,2.6275 -7.28982,7.32933 0,4.70183 2.76578,7.32933 7.28982,7.32933 z m 0,-3.14114 c -2.23239,0 -3.65479,-1.56069 -3.65479,-4.18819 0,-2.62749 1.4224,-4.18819 3.65479,-4.18819 2.212624,0 3.635027,1.5607 3.635027,4.18819 0,2.6275 -1.422403,4.18819 -3.635027,4.18819 z"/><path d="m -93.783207,223.12004 h 6.183503 c 3.753564,0 6.795927,-1.89654 6.795927,-7.05275 0,-5.15621 -3.042363,-7.05275 -6.795927,-7.05275 h -6.183503 z m 5.294501,-3.12138 h -1.857026 v -7.86273 h 1.857026 c 3.239919,0 4.049898,1.34338 4.049898,3.93136 0,2.58799 -0.809979,3.93137 -4.049898,3.93137 z"/><path d="m -73.05818,223.39662 c 3.101629,0 6.440326,-1.81752 6.637882,-5.84766 h -3.654786 c -0.217312,1.85703 -1.698982,2.70652 -2.983096,2.70652 -2.15336,0 -3.496741,-1.44216 -3.496741,-4.20794 0,-2.72628 1.343381,-4.16844 3.496741,-4.16844 1.284114,0 2.78554,0.82974 2.983096,2.70652 h 3.654786 c -0.197556,-4.0499 -3.536253,-5.84766 -6.637882,-5.84766 -4.286965,0 -7.131771,2.54848 -7.131771,7.30958 0,4.80061 2.844806,7.34908 7.131771,7.34908 z"/><path d="m -65.411352,223.12004 h 10.806313 v -3.12138 h -7.368838 v -2.37068 h 6.381058 v -3.12138 h -6.381058 v -2.37067 h 7.27006 v -3.12139 h -10.707535 z"/></g></svg>
-    </div>
-    <div style="border-left:1px solid rgba(255,255,255,0.3);padding-left:12px;line-height:1.3;">
-      <div style="font-size:11px;font-weight:600;color:white;letter-spacing:0.3px;">Institut für Organisationsdesign</div>
-      <div style="font-size:11px;color:rgba(255,255,255,0.75);">und Collaborative Engineering · TUHH</div>
-    </div>
+  <div class="odce-logo">
+    <span class="odce-wordmark">ODCE</span>
   </div>
-  <div style="font-size:11px;color:rgba(255,255,255,0.6);font-style:italic;">Technisch ist das möglich.</div>
+  <span class="header-title">Institut für Organisationsdesign und Collaborative Engineering · TUHH</span>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════ -->
@@ -532,7 +526,7 @@
 <!-- ══════════════════════════════════════════════════════════ -->
 <div id="student-view">
 
-  <!-- SCREEN 0: Welcome + context -->
+  <!-- SCREEN 0: The initial design + production flag -->
   <div class="screen active" id="screen-0">
     <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
       <div class="step-indicator">
@@ -543,48 +537,49 @@
       <h1>Sheet Metal<br>Design Task</h1>
       <div class="accent-line"></div>
 
-      <!-- Manufacturing context -->
       <div class="context-box">
         <h3>🏭 Manufacturing Context</h3>
         <p style="margin-top:8px;font-size:14px;">
-          You are designing a prototype support bracket to be manufactured from a <strong>single flat sheet of metal</strong>.
-          This is a real sheet metal operation — the sheet is bent using a <strong>press brake</strong>.
+          You are designing a support bracket manufactured from a <strong>single flat sheet of metal</strong>,
+          bent using a <strong>press brake</strong>.
+          Each bend costs <strong>€0.85 per unit</strong> in setup and cycle time.
         </p>
-        <p style="font-size:14px;">Each folding operation costs <strong>€0.85 per unit</strong> (press brake setup + cycle time). Keep that in mind when you design.</p>
       </div>
 
-      <!-- Reference design -->
-      <h3 style="margin-top:28px;">Current design — not a valid solution</h3>
-      <p style="font-size:13px;color:#e04000;"><strong>⚠️ This design violates the constraints</strong> — it uses more than one fold angle. Can you do better?</p>
+      <h3 style="margin-top:28px;">The proposed design</h3>
+      <p style="font-size:14px;color:#555;">Your team has proposed the following bracket design — a triangular column made with <strong>2 folds</strong>.</p>
 
-      <!-- Render image — swap src when you have the CAD render -->
-      <img id="render-img" src="" alt="Example of a valid solution">
+      <!-- Render slot -->
+      <img id="render-img" src="" alt="Triangular column — 2-fold design" style="display:none;width:100%;border-radius:12px;border:1px solid #eee;margin:24px 0;">
       <div class="render-placeholder" id="render-placeholder">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <rect x="16" y="16" width="32" height="32" stroke="#143AFF" stroke-width="2"/>
-          <line x1="16" y1="16" x2="48" y2="16" stroke="#143AFF" stroke-width="2"/>
-          <line x1="32" y1="4" x2="32" y2="60" stroke="#00C1D4" stroke-width="1" stroke-dasharray="4 3"/>
-          <line x1="4" y1="32" x2="60" y2="32" stroke="#00C1D4" stroke-width="1" stroke-dasharray="4 3"/>
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <polygon points="40,10 70,65 10,65" stroke="#143AFF" stroke-width="2.5" fill="#e8f0ff"/>
+          <line x1="40" y1="10" x2="40" y2="65" stroke="#00C1D4" stroke-width="1.5" stroke-dasharray="4 3"/>
         </svg>
-        <span>CAD render will appear here</span>
-        <span style="font-size:11px;margin-top:4px;">Replace src in &lt;img id="render-img"&gt;</span>
+        <span style="margin-top:8px;">Triangular column — 2 folds</span>
+        <span style="font-size:11px;margin-top:4px;">(Replace with CAD render: set src on &lt;img id="render-img"&gt;)</span>
       </div>
-      <p class="render-label">This design is <strong>invalid</strong> — multiple fold angles used</p>
 
-      <!-- Constraints -->
-      <h3 style="margin-top:8px;">Your task</h3>
-      <p style="font-size:14px;">Using the A4 sheet of paper you have received, fold a standing structure that meets all conditions:</p>
+      <!-- Production flag -->
+      <div style="background:#fff3cd;border-left:4px solid #e8a000;border-radius:8px;padding:18px 22px;margin:8px 0 24px;">
+        <p style="font-size:14px;font-weight:600;color:#7a4f00;margin:0 0 6px;">⚠️ Production Flag</p>
+        <p style="font-size:14px;color:#5a3a00;margin:0;">
+          This part has been flagged by production: the press brake tooling configuration for this batch
+          does not support exactly 2 bends per workpiece. All other numbers of bends are within spec.
+        </p>
+      </div>
+
+      <h3>Your task</h3>
+      <p style="font-size:14px;">Redesign the bracket using the A4 sheet of paper provided. Your solution must still:</p>
       <div class="constraint-box">
         <ul>
-          <li>Only <strong>one fold angle</strong> is allowed — every fold must be at the same angle</li>
-          <li>The structure must be able to <strong>support an A5 sheet placed flat on top</strong></li>
+          <li>Be able to <strong>support an A5 sheet placed flat on top</strong></li>
+          <li>Use <strong>any number of folds except 2</strong></li>
         </ul>
       </div>
 
-
-
       <div class="btn-row">
-        <button class="btn btn-primary" onclick="goToScreen(1)">Start task →</button>
+        <button class="btn btn-primary" onclick="goToScreen(1)">Start redesign →</button>
       </div>
     </div>
   </div>
@@ -597,28 +592,27 @@
         <div class="step-dot active"></div>
         <div class="step-dot"></div>
       </div>
-      <h2>Build your structure now</h2>
+      <h2>Build your redesign</h2>
       <div class="accent-line"></div>
-      <p>Use the A4 sheet of paper you have received to fold a standing structure.</p>
+      <p>Use the A4 sheet of paper to fold your redesigned bracket now. Remember:</p>
 
       <div class="constraint-box">
         <ul>
-          <li>Only <strong>one fold angle</strong> is allowed — every fold must be at the same angle</li>
-          <li>The structure must be able to <strong>support an A5 sheet placed flat on top</strong></li>
-          <li>Each fold costs <strong>€0.85 per unit</strong> in production — keep this in mind</li>
+          <li>Must <strong>support an A5 sheet flat on top</strong></li>
+          <li><strong>Any number of folds except 2</strong></li>
         </ul>
       </div>
 
-      <p style="font-size:14px;color:#555;">Take your time. When your structure is ready, move to the next step.</p>
+      <p style="font-size:14px;color:#555;margin-top:8px;">Take your time. When you are happy with your structure, move on to record your response.</p>
 
       <div class="btn-row">
         <button class="btn btn-outline" onclick="goToScreen(0)">← Back</button>
-        <button class="btn btn-primary" onclick="goToScreen(2)">I'm done — record my response →</button>
+        <button class="btn btn-primary" onclick="goToScreen(2)">Done — record my response →</button>
       </div>
     </div>
   </div>
 
-  <!-- SCREEN 2: All questions + Submit -->
+  <!-- SCREEN 2: Record + Submit -->
   <div class="screen" id="screen-2">
     <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
       <div class="step-indicator">
@@ -629,13 +623,11 @@
       <h2>Record your response</h2>
       <div class="accent-line"></div>
 
-      <h3>Part A — What you built</h3>
-
-      <div class="input-group" style="margin-top:16px;">
-        <label>How many folds did you make?</label>
+      <!-- How many folds -->
+      <div class="input-group">
+        <label>How many folds does your redesign use?</label>
         <div class="folds-selector" id="folds-made-selector">
           <div class="fold-option" onclick="selectFold('made',1,this)"><span class="fold-num">1</span></div>
-          <div class="fold-option" onclick="selectFold('made',2,this)"><span class="fold-num">2</span></div>
           <div class="fold-option" onclick="selectFold('made',3,this)"><span class="fold-num">3</span></div>
           <div class="fold-option" onclick="selectFold('made',4,this)"><span class="fold-num">4</span></div>
           <div class="fold-option" onclick="selectFold('made',5,this)"><span class="fold-num">5+</span></div>
@@ -643,8 +635,15 @@
         <p class="error-msg" id="folds-made-error">Please select the number of folds.</p>
       </div>
 
+      <!-- Why -->
       <div class="input-group">
-        <label>How confident are you that your solution satisfies all conditions?</label>
+        <label>Why did you choose this number of folds?</label>
+        <textarea id="description" placeholder="Describe your reasoning — cost, stability, simplicity…" rows="3"></textarea>
+      </div>
+
+      <!-- Confidence -->
+      <div class="input-group">
+        <label>How confident are you that your redesign satisfies all conditions?</label>
         <div class="rating-row" id="confidence-rating">
           <button class="rating-btn" onclick="selectRating('confidence',1,this)">1 — Not at all</button>
           <button class="rating-btn" onclick="selectRating('confidence',2,this)">2</button>
@@ -655,46 +654,13 @@
         <p class="error-msg" id="confidence-error">Please rate your confidence.</p>
       </div>
 
+      <!-- Reflection -->
       <div class="input-group">
-        <label>Describe your structure in one sentence</label>
-        <textarea id="description" placeholder="Describe what you made and why you chose that number of folds." rows="2"></textarea>
+        <label>Would you have designed differently if the cost per fold was shown from the start?</label>
+        <textarea id="reflection" placeholder="Your thoughts…" rows="2"></textarea>
       </div>
 
-      <div class="divider"></div>
-
-      <h3>Part B — Minimum possible folds</h3>
-      <p style="font-size:14px;color:#555;margin-top:8px;">Think about the task from scratch — what is the theoretical minimum number of folds for a valid solution?</p>
-
-      <div class="input-group" style="margin-top:16px;">
-        <label>Minimum number of folds needed for a valid solution?</label>
-        <div class="folds-selector" id="folds-min-selector">
-          <div class="fold-option" onclick="selectFold('min',1,this)"><span class="fold-num">1</span></div>
-          <div class="fold-option" onclick="selectFold('min',2,this)"><span class="fold-num">2</span></div>
-          <div class="fold-option" onclick="selectFold('min',3,this)"><span class="fold-num">3</span></div>
-          <div class="fold-option" onclick="selectFold('min',4,this)"><span class="fold-num">4</span></div>
-          <div class="fold-option" onclick="selectFold('min',5,this)"><span class="fold-num">5+</span></div>
-        </div>
-        <p class="error-msg" id="folds-min-error">Please select your estimate.</p>
-      </div>
-
-      <div class="input-group">
-        <label>What shape does the minimum solution produce?</label>
-        <select id="min-shape">
-          <option value="">— select —</option>
-          <option value="tent">Tent / A-frame (1 fold)</option>
-          <option value="triangle">Triangular column (2 folds)</option>
-          <option value="square">Square column (3 folds)</option>
-          <option value="pentagon">Pentagonal column (4 folds)</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-
-      <div class="input-group">
-        <label>Would you change your design if the cost per fold was shown upfront? Why?</label>
-        <textarea id="reflection" placeholder="Your thoughts..." rows="3"></textarea>
-      </div>
-
-      <p style="font-size:13px;color:#888;margin-top:8px;">Your response will be saved anonymously for research purposes.</p>
+      <p style="font-size:13px;color:#888;margin-top:8px;">Your response is saved anonymously for research purposes.</p>
 
       <div class="btn-row">
         <button class="btn btn-outline" onclick="goToScreen(1)">← Back</button>
@@ -706,10 +672,10 @@
 
   <!-- SCREEN 3: Thank you -->
   <div class="screen" id="screen-3">
-    <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
+    <div style="max-width:720px;margin:0 auto;padding:60px 24px">
       <div class="thank-you-box">
         <h2>Thank you! 🎉</h2>
-        <p style="margin-top:12px;">Your response has been recorded.<br>We will discuss the results together shortly.</p>
+        <p style="margin-top:12px;">Your redesign has been recorded.<br>We will discuss the results together shortly.</p>
       </div>
       <div style="margin-top:32px;background:var(--gray);border-radius:10px;padding:20px 24px;">
         <p style="font-size:13px;color:#888;margin:0;">You can close this tab or wait for the group discussion.</p>
@@ -719,7 +685,9 @@
 
 </div><!-- /student-view -->
 
-
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HOST PANEL                                                 -->
+<!-- ══════════════════════════════════════════════════════════ -->
 <div id="host-view" style="display:none;">
   <div class="host-header">
     <span>🎛️ Host Panel — Folding Task</span>
@@ -740,7 +708,9 @@
     <div class="stats-grid" id="stats-grid">
       <div class="stat-card"><span class="stat-num" id="stat-total">0</span><span class="stat-label">Responses</span></div>
       <div class="stat-card"><span class="stat-num" id="stat-avg">—</span><span class="stat-label">Avg folds made</span></div>
-      </div>
+      <div class="stat-card"><span class="stat-num" id="stat-avg-min">—</span><span class="stat-label">Avg estimated minimum</span></div>
+      <div class="stat-card"><span class="stat-num" id="stat-bias">—</span><span class="stat-label">Avg bias score (made − min)</span></div>
+    </div>
 
     <!-- Bar chart -->
     <h3 style="margin-bottom:12px;">Distribution — folds made</h3>
@@ -764,7 +734,7 @@
             <th>Name / ID</th>
             <th>Folds made</th>
             <th>Est. minimum</th>
-            
+            <th>Bias</th>
             <th>Confidence</th>
             <th>Description</th>
             <th>Time</th>
@@ -803,6 +773,8 @@ try {
 const state = {
   nickname: 'anonymous',
   foldsMade: null,
+  foldsMin: null,
+  minShape: '',
   description: '',
   confidence: null,
   reflection: ''
@@ -843,20 +815,15 @@ function goToScreen(n) {
 
 function validateScreen(n) {
   let ok = true;
-  if (n === 0) {
-    state.nickname = 'anonymous';
-  }
-  // screen-1 is build instruction only — no validation
+  if (n === 0) { state.nickname = 'anonymous'; }
+  // screen-1 is build-only — no validation
   if (n === 2) {
     if (!state.foldsMade) { showError('folds-made-error'); ok = false; }
     else hideError('folds-made-error');
     if (!state.confidence) { showError('confidence-error'); ok = false; }
     else hideError('confidence-error');
     state.description = document.getElementById('description').value.trim();
-    if (!state.foldsMin) { showError('folds-min-error'); ok = false; }
-    else hideError('folds-min-error');
-    state.minShape   = document.getElementById('min-shape').value;
-    state.reflection = document.getElementById('reflection').value.trim();
+    state.reflection  = document.getElementById('reflection').value.trim();
   }
   return ok;
 }
@@ -896,7 +863,10 @@ const shapeNames = { 1:'1 fold', 2:'2 folds', 3:'3 folds', 4:'4 folds', 5:'5+ fo
 function buildSummary() {
   const box = document.getElementById('summary-box');
   box.innerHTML = `
-    <strong>Folds made:</strong> ${state.foldsMade}<br>
+    <strong>Name:</strong> ${state.nickname}<br>
+    <strong>Folds made:</strong> ${state.foldsMade} — ${shapeNames[state.foldsMade] || state.foldsMade}<br>
+    <strong>Est. minimum:</strong> ${state.foldsMin} fold${state.foldsMin > 1 ? 's' : ''}<br>
+    <strong>Bias score:</strong> ${state.foldsMade - state.foldsMin > 0 ? '+' : ''}${state.foldsMade - state.foldsMin} folds above minimum<br>
     <strong>Confidence:</strong> ${state.confidence} / 5<br>
     ${state.description ? `<strong>Description:</strong> ${state.description}` : ''}
   `;
@@ -992,7 +962,11 @@ function renderHostPanel(data) {
   document.getElementById('stat-total').textContent = data.length;
   if (data.length > 0) {
     const avgMade = data.reduce((s,r) => s + (r.folds_made||0), 0) / data.length;
+    const avgMin  = data.reduce((s,r) => s + (r.folds_min||0), 0) / data.length;
+    const avgBias = data.reduce((s,r) => s + (r.bias_score||0), 0) / data.length;
     document.getElementById('stat-avg').textContent     = avgMade.toFixed(1);
+    document.getElementById('stat-avg-min').textContent = avgMin.toFixed(1);
+    document.getElementById('stat-bias').textContent    = (avgBias >= 0 ? '+' : '') + avgBias.toFixed(1);
   }
 
   // Bar chart
@@ -1020,6 +994,10 @@ function renderHostPanel(data) {
       <td>${i+1}</td>
       <td>${r.nickname || '—'}</td>
       <td><span class="badge ${badgeClass[r.folds_made]||'badge-other'}">${r.folds_made} fold${r.folds_made!==1?'s':''}</span></td>
+      <td>${r.folds_min ?? '—'}</td>
+      <td style="color:${r.bias_score>0?'#c0392b':r.bias_score<0?'#27ae60':'#888'};font-weight:600;">
+        ${r.bias_score > 0 ? '+' : ''}${r.bias_score ?? '—'}
+      </td>
       <td>${r.confidence ?? '—'}/5</td>
       <td style="max-width:200px;font-size:12px;color:#666;">${r.description || '—'}</td>
       <td style="font-size:11px;color:#aaa;">${r.created_at ? new Date(r.created_at).toLocaleTimeString() : '—'}</td>
