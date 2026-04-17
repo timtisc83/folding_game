@@ -33,30 +33,10 @@
     /* ── HEADER ── */
     .header {
       background: var(--turquoise);
-      padding: 14px 28px;
+      padding: 12px 28px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-    }
-
-    .odce-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .odce-wordmark {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--blue);
-      letter-spacing: -0.5px;
-    }
-
-    .header-title {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--white);
-      opacity: 0.9;
+      gap: 16px;
     }
 
     /* ── SCREENS ── */
@@ -112,12 +92,7 @@
       padding: 20px 24px;
       margin: 20px 0;
     }
-
-    .constraint-box ul {
-      list-style: none;
-      padding: 0;
-    }
-
+    .constraint-box ul { list-style: none; padding: 0; }
     .constraint-box ul li {
       font-size: 14px;
       padding: 5px 0;
@@ -126,7 +101,6 @@
       gap: 10px;
       color: #222;
     }
-
     .constraint-box ul li::before {
       content: '—';
       color: var(--turquoise);
@@ -143,34 +117,6 @@
       margin: 20px 0;
     }
 
-    .context-box .cost-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-      font-size: 13px;
-    }
-
-    .context-box .cost-table th {
-      text-align: left;
-      padding: 6px 10px;
-      background: var(--blue);
-      color: white;
-      font-weight: 600;
-    }
-
-    .context-box .cost-table td {
-      padding: 7px 10px;
-      border-bottom: 1px solid #ccd6ff;
-      color: #222;
-    }
-
-    .context-box .cost-table tr:last-child td { border-bottom: none; }
-    .context-box .cost-table tr.highlight td {
-      background: #fffbe6;
-      font-weight: 600;
-      color: var(--blue);
-    }
-
     /* ── IMAGE PLACEHOLDER ── */
     .render-placeholder {
       width: 100%;
@@ -185,16 +131,7 @@
       color: #aaa;
       font-size: 14px;
       margin: 24px 0;
-      position: relative;
-      overflow: hidden;
     }
-
-    .render-placeholder svg {
-      opacity: 0.25;
-      margin-bottom: 10px;
-    }
-
-    /* actual image if provided */
     #render-img {
       width: 100%;
       aspect-ratio: 4/3;
@@ -204,7 +141,6 @@
       margin: 24px 0;
       display: none;
     }
-
     .render-label {
       font-size: 11px;
       color: #888;
@@ -226,7 +162,7 @@
       transition: opacity 0.2s;
     }
     .btn:hover { opacity: 0.85; }
-    .btn-primary { background: var(--blue); color: white; }
+    .btn-primary   { background: var(--blue);      color: white; }
     .btn-turquoise { background: var(--turquoise); color: white; }
     .btn-outline {
       background: transparent;
@@ -236,10 +172,8 @@
     .btn-sm { padding: 8px 18px; font-size: 13px; }
     .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
 
-    /* ── NICK INPUT ── */
-    .input-group {
-      margin: 20px 0;
-    }
+    /* ── INPUTS ── */
+    .input-group { margin: 20px 0; }
     .input-group label {
       display: block;
       font-size: 13px;
@@ -261,19 +195,11 @@
     }
     .input-group input:focus,
     .input-group textarea:focus,
-    .input-group select:focus {
-      border-color: var(--turquoise);
-    }
+    .input-group select:focus { border-color: var(--turquoise); }
     .input-group textarea { resize: vertical; min-height: 80px; }
 
     /* ── FOLDS SELECTOR ── */
-    .folds-selector {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 16px 0;
-    }
-
+    .folds-selector { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
     .fold-option {
       flex: 1;
       min-width: 80px;
@@ -285,14 +211,8 @@
       transition: all 0.2s;
       background: white;
     }
-
     .fold-option:hover { border-color: var(--turquoise); }
-
-    .fold-option.selected {
-      border-color: var(--blue);
-      background: #e8f0ff;
-    }
-
+    .fold-option.selected { border-color: var(--blue); background: #e8f0ff; }
     .fold-option .fold-num {
       font-size: 28px;
       font-weight: 700;
@@ -300,20 +220,8 @@
       display: block;
     }
 
-    .fold-option .fold-label {
-      font-size: 11px;
-      color: #888;
-      margin-top: 4px;
-    }
-
     /* ── RATING ── */
-    .rating-row {
-      display: flex;
-      gap: 10px;
-      margin: 12px 0;
-      flex-wrap: wrap;
-    }
-
+    .rating-row { display: flex; gap: 10px; margin: 12px 0; flex-wrap: wrap; }
     .rating-btn {
       padding: 8px 18px;
       border: 2px solid #ddd;
@@ -324,32 +232,17 @@
       background: white;
       transition: all 0.2s;
     }
-
     .rating-btn:hover { border-color: var(--turquoise); }
     .rating-btn.selected { border-color: var(--blue); background: #e8f0ff; font-weight: 600; }
 
     /* ── STEP INDICATOR ── */
-    .step-indicator {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 28px;
-    }
-    .step-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ddd;
-    }
+    .step-indicator { display: flex; gap: 6px; margin-bottom: 28px; }
+    .step-dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; }
     .step-dot.active { background: var(--turquoise); }
-    .step-dot.done { background: var(--blue); }
+    .step-dot.done   { background: var(--blue); }
 
     /* ── DIVIDER ── */
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: #eee;
-      margin: 28px 0;
-    }
+    .divider { width: 100%; height: 1px; background: #eee; margin: 28px 0; }
 
     /* ── THANK YOU ── */
     .thank-you-box {
@@ -361,7 +254,7 @@
       margin-top: 20px;
     }
     .thank-you-box h2 { color: white; font-size: 28px; }
-    .thank-you-box p { color: rgba(255,255,255,0.85); font-size: 16px; }
+    .thank-you-box p  { color: rgba(255,255,255,0.85); font-size: 16px; }
 
     /* ── GEOMETRIC DECORATION ── */
     .geo-accent {
@@ -386,20 +279,13 @@
       align-items: center;
       justify-content: space-between;
     }
-
-    .host-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 32px 24px;
-    }
-
+    .host-container { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 16px;
       margin-bottom: 32px;
     }
-
     .stat-card {
       background: var(--gray);
       border-radius: 10px;
@@ -407,95 +293,33 @@
       text-align: center;
       border-top: 4px solid var(--turquoise);
     }
-
-    .stat-card .stat-num {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--blue);
-      display: block;
-    }
-
-    .stat-card .stat-label {
-      font-size: 12px;
-      color: #888;
-      margin-top: 4px;
-    }
-
-    .responses-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
-
+    .stat-card .stat-num { font-size: 36px; font-weight: 700; color: var(--blue); display: block; }
+    .stat-card .stat-label { font-size: 12px; color: #888; margin-top: 4px; }
+    .responses-table { width: 100%; border-collapse: collapse; font-size: 13px; }
     .responses-table th {
-      text-align: left;
-      padding: 10px 12px;
-      background: var(--blue);
-      color: white;
-      font-weight: 600;
+      text-align: left; padding: 10px 12px;
+      background: var(--blue); color: white; font-weight: 600;
     }
-
-    .responses-table td {
-      padding: 9px 12px;
-      border-bottom: 1px solid #eee;
-      vertical-align: top;
-    }
-
+    .responses-table td { padding: 9px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
     .responses-table tr:hover td { background: #f8f8f8; }
-
-    .badge {
-      display: inline-block;
-      padding: 2px 10px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    .badge-tent { background: #d4f8d4; color: #1a7a1a; }
-    .badge-tri  { background: #fff3cd; color: #856404; }
-    .badge-sq   { background: #fde2d4; color: #a04000; }
-    .badge-pent { background: #f8d7da; color: #842029; }
-    .badge-other{ background: #eee; color: #555; }
-
+    .badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+    .badge-tent  { background: #d4f8d4; color: #1a7a1a; }
+    .badge-tri   { background: #fff3cd; color: #856404; }
+    .badge-sq    { background: #fde2d4; color: #a04000; }
+    .badge-pent  { background: #f8d7da; color: #842029; }
+    .badge-other { background: #eee;    color: #555; }
     .host-actions { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
-
-    /* bar chart */
     .bar-chart { margin: 24px 0; }
-    .bar-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
+    .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
     .bar-row-label { width: 120px; font-size: 13px; color: #444; text-align: right; flex-shrink: 0; }
-    .bar-track {
-      flex: 1;
-      height: 28px;
-      background: #eee;
-      border-radius: 6px;
-      overflow: hidden;
-    }
+    .bar-track { flex: 1; height: 28px; background: #eee; border-radius: 6px; overflow: hidden; }
     .bar-fill {
-      height: 100%;
-      background: var(--turquoise);
-      border-radius: 6px;
-      transition: width 0.6s ease;
-      display: flex;
-      align-items: center;
-      padding-left: 10px;
-      color: white;
-      font-size: 12px;
-      font-weight: 600;
+      height: 100%; background: var(--turquoise); border-radius: 6px;
+      transition: width 0.6s ease; display: flex; align-items: center;
+      padding-left: 10px; color: white; font-size: 12px; font-weight: 600;
     }
+    .error-msg { color: var(--red); font-size: 13px; margin-top: 6px; display: none; }
 
-    .error-msg {
-      color: var(--red);
-      font-size: 13px;
-      margin-top: 6px;
-      display: none;
-    }
-
-    /* mobile */
     @media (max-width: 500px) {
       h1 { font-size: 24px; }
       .folds-selector { gap: 8px; }
@@ -505,54 +329,37 @@
 </head>
 <body>
 
-<!-- Geometric background accent -->
-<svg class="geo-accent" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <polygon points="200,0 200,200 0,200" fill="#143AFF"/>
-  <line x1="200" y1="0" x2="0" y2="200" stroke="#00C1D4" stroke-width="1"/>
-  <line x1="200" y1="50" x2="50" y2="200" stroke="#00C1D4" stroke-width="0.5"/>
-  <line x1="200" y1="100" x2="100" y2="200" stroke="#00C1D4" stroke-width="0.5"/>
+<!-- ODCE circuit/construction geo accent (TU2) -->
+<svg class="geo-accent" viewBox="0 0 260 320" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="260,0 260,320 0,320" fill="#143AFF"/>
+  <line x1="260" y1="60"  x2="60"  y2="260" stroke="#00C1D4" stroke-width="1"/>
+  <line x1="260" y1="130" x2="130" y2="260" stroke="#00C1D4" stroke-width="0.6"/>
+  <line x1="260" y1="200" x2="200" y2="260" stroke="#00C1D4" stroke-width="0.4"/>
+  <circle cx="220" cy="100" r="3" fill="#00C1D4"/>
+  <circle cx="200" cy="160" r="3" fill="#00C1D4"/>
+  <line x1="190" y1="260" x2="260" y2="260" stroke="#143AFF" stroke-width="0.8"/>
+  <line x1="260" y1="150" x2="210" y2="150" stroke="#143AFF" stroke-width="0.8"/>
 </svg>
 
 <!-- HEADER -->
 <div class="header">
-  <div class="odce-logo" style="display:flex;align-items:center;gap:14px;">
-    <div style="height:44px;display:flex;align-items:center;">
-      <!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="52"
-   height="44"
-   viewBox="0 0 96.605103 82.199448"
-   version="1.1"
-   id="svg5"
-   xml:space="preserve"
-   xmlns="http://www.w3.org/2000/svg"
-   ><g
-     id="layer1"
-     transform="translate(117.23172,-149.41432)"><path
-       id="path549-01-9-8"
-       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.264583"
-       d="m -20.758898,149.5762 a 0.02963265,0.02963265 0 0 1 -0.02963,0.0296 0.02963265,0.02963265 0 0 1 -0.02963,-0.0296 0.02963265,0.02963265 0 0 1 0.02963,-0.0296 0.02963265,0.02963265 0 0 1 0.02963,0.0296 z" /><path
-       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.5875;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="m -116.43796,230.55898 59.621691,0.26104 h 6.8089 l 27.00638,-23.65599 v -50.64865 l -38.93207,0.22247 -54.504901,21.22023 z"
-       id="path28826-0-8-5-8"
-       /><g
-       aria-label="ODCE"
-       id="text9450-0-6-9-9-7-8-9"
-       style="font-weight:bold;font-size:19.7556px;line-height:0.8;font-family:'BC Novatica TEST';-inkscape-font-specification:'BC Novatica TEST, Bold';letter-spacing:-0.5715px;fill:#ffffff;stroke-width:0.539294;stroke-linecap:round"><path
-         d="m -102.06223,223.39662 c 4.504274,0 7.270058,-2.6275 7.270058,-7.32933 0,-4.70183 -2.765784,-7.32933 -7.270058,-7.32933 -4.52404,0 -7.28982,2.6275 -7.28982,7.32933 0,4.70183 2.76578,7.32933 7.28982,7.32933 z m 0,-3.14114 c -2.23239,0 -3.65479,-1.56069 -3.65479,-4.18819 0,-2.62749 1.4224,-4.18819 3.65479,-4.18819 2.212624,0 3.635027,1.5607 3.635027,4.18819 0,2.6275 -1.422403,4.18819 -3.635027,4.18819 z"
-         id="path34047" /><path
-         d="m -93.783207,223.12004 h 6.183503 c 3.753564,0 6.795927,-1.89654 6.795927,-7.05275 0,-5.15621 -3.042363,-7.05275 -6.795927,-7.05275 h -6.183503 z m 5.294501,-3.12138 h -1.857026 v -7.86273 h 1.857026 c 3.239919,0 4.049898,1.34338 4.049898,3.93136 0,2.58799 -0.809979,3.93137 -4.049898,3.93137 z"
-         id="path34049" /><path
-         d="m -73.05818,223.39662 c 3.101629,0 6.440326,-1.81752 6.637882,-5.84766 h -3.654786 c -0.217312,1.85703 -1.698982,2.70652 -2.983096,2.70652 -2.15336,0 -3.496741,-1.44216 -3.496741,-4.20794 0,-2.72628 1.343381,-4.16844 3.496741,-4.16844 1.284114,0 2.78554,0.82974 2.983096,2.70652 h 3.654786 c -0.197556,-4.0499 -3.536253,-5.84766 -6.637882,-5.84766 -4.286965,0 -7.131771,2.54848 -7.131771,7.30958 0,4.80061 2.844806,7.34908 7.131771,7.34908 z"
-         id="path34051" /><path
-         d="m -65.411352,223.12004 h 10.806313 v -3.12138 h -7.368838 v -2.37068 h 6.381058 v -3.12138 h -6.381058 v -2.37067 h 7.27006 v -3.12139 h -10.707535 z"
-         id="path34053" /></g></g></svg>
-    </div>
-    <div style="border-left:1px solid rgba(255,255,255,0.3);padding-left:14px;line-height:1.35;">
-      <div style="font-size:11px;font-weight:600;color:white;letter-spacing:0.3px;">Institut für Organisationsdesign</div>
-      <div style="font-size:11px;color:rgba(255,255,255,0.75);">und Collaborative Engineering · TUHH</div>
-    </div>
+  <div style="height:40px;display:flex;align-items:center;flex-shrink:0;">
+    <!-- ODCE Logo solid — white on turquoise -->
+    <svg width="48" height="40" viewBox="0 0 96.605103 82.199448" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(117.23172,-149.41432)">
+        <path style="fill:none;stroke:#ffffff;stroke-width:1.5875;stroke-linecap:round;stroke-linejoin:round;" d="m -116.43796,230.55898 59.621691,0.26104 h 6.8089 l 27.00638,-23.65599 v -50.64865 l -38.93207,0.22247 -54.504901,21.22023 z"/>
+        <g aria-label="ODCE" style="font-weight:bold;font-size:19.7556px;font-family:'BC Novatica TEST';fill:#ffffff;">
+          <path d="m -102.06223,223.39662 c 4.504274,0 7.270058,-2.6275 7.270058,-7.32933 0,-4.70183 -2.765784,-7.32933 -7.270058,-7.32933 -4.52404,0 -7.28982,2.6275 -7.28982,7.32933 0,4.70183 2.76578,7.32933 7.28982,7.32933 z m 0,-3.14114 c -2.23239,0 -3.65479,-1.56069 -3.65479,-4.18819 0,-2.62749 1.4224,-4.18819 3.65479,-4.18819 2.212624,0 3.635027,1.5607 3.635027,4.18819 0,2.6275 -1.422403,4.18819 -3.635027,4.18819 z"/>
+          <path d="m -93.783207,223.12004 h 6.183503 c 3.753564,0 6.795927,-1.89654 6.795927,-7.05275 0,-5.15621 -3.042363,-7.05275 -6.795927,-7.05275 h -6.183503 z m 5.294501,-3.12138 h -1.857026 v -7.86273 h 1.857026 c 3.239919,0 4.049898,1.34338 4.049898,3.93136 0,2.58799 -0.809979,3.93137 -4.049898,3.93137 z"/>
+          <path d="m -73.05818,223.39662 c 3.101629,0 6.440326,-1.81752 6.637882,-5.84766 h -3.654786 c -0.217312,1.85703 -1.698982,2.70652 -2.983096,2.70652 -2.15336,0 -3.496741,-1.44216 -3.496741,-4.20794 0,-2.72628 1.343381,-4.16844 3.496741,-4.16844 1.284114,0 2.78554,0.82974 2.983096,2.70652 h 3.654786 c -0.197556,-4.0499 -3.536253,-5.84766 -6.637882,-5.84766 -4.286965,0 -7.131771,2.54848 -7.131771,7.30958 0,4.80061 2.844806,7.34908 7.131771,7.34908 z"/>
+          <path d="m -65.411352,223.12004 h 10.806313 v -3.12138 h -7.368838 v -2.37068 h 6.381058 v -3.12138 h -6.381058 v -2.37067 h 7.27006 v -3.12139 h -10.707535 z"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div style="border-left:1px solid rgba(255,255,255,0.35);padding-left:14px;line-height:1.4;">
+    <div style="font-size:11px;font-weight:600;color:white;letter-spacing:0.3px;">Institut für Organisationsdesign</div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.75);">und Collaborative Engineering · TUHH</div>
   </div>
 </div>
 
@@ -561,98 +368,106 @@
 <!-- ══════════════════════════════════════════════════════════ -->
 <div id="student-view">
 
-  <!-- SCREEN 0: Welcome + context -->
+  <!-- SCREEN 0: The initial design + production flag -->
   <div class="screen active" id="screen-0">
     <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
       <div class="step-indicator">
         <div class="step-dot active"></div>
         <div class="step-dot"></div>
         <div class="step-dot"></div>
-        <div class="step-dot"></div>
       </div>
       <h1>Sheet Metal<br>Design Task</h1>
       <div class="accent-line"></div>
 
-      <!-- Manufacturing context -->
       <div class="context-box">
-        <h3>📦 Manufacturing Context</h3>
+        <h3>🏭 Manufacturing Context</h3>
         <p style="margin-top:8px;font-size:14px;">
-          You are a manufacturing engineer. A customer needs a <strong>structural column profile</strong>
-          bent from a flat sheet blank. The profile will be produced at <strong>1,000 units</strong>.
+          You are designing a support bracket manufactured from a <strong>single flat sheet of metal</strong>,
+          bent using a <strong>press brake</strong>.
+          Each bend costs <strong>€0.85 per unit</strong> in setup and cycle time.
         </p>
-        <p style="font-size:14px;">You are producing this in a sheet metal shop. Each folding operation (press brake setup + cycle time) costs <strong>€0.85 per unit</strong>. The most cost-efficient design wins.</p>
-        <table class="cost-table">
-          <thead>
-            <tr><th>Folds</th><th>Shape</th><th>Cost / unit</th><th>Total (1,000 units)</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>1</td><td>€0.85</td><td>€850</td></tr>
-            <tr><td>2</td><td>€1.70</td><td>€1,700</td></tr>
-            <tr><td>3</td><td>€2.55</td><td>€2,550</td></tr>
-            <tr><td>4</td><td>€3.40</td><td>€3,400</td></tr>
-          </tbody>
-        </table>
       </div>
 
-      <!-- Reference design -->
-      <h3 style="margin-top:28px;">Example of a valid solution</h3>
-      <p style="font-size:13px;color:#666;">The image below shows one valid solution. It is not necessarily the best one.</p>
+      <h3 style="margin-top:28px;">The proposed design</h3>
+      <p style="font-size:14px;color:#555;">Your team has proposed the following bracket design — a triangular column made with <strong>2 folds</strong>.</p>
 
-      <!-- Render image — swap src when you have the CAD render -->
-      <img id="render-img" src="" alt="Reference design — example valid solution top view">
+      <img id="render-img" src="" alt="Triangular column — 2-fold design">
       <div class="render-placeholder" id="render-placeholder">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <rect x="16" y="16" width="32" height="32" stroke="#143AFF" stroke-width="2"/>
-          <line x1="16" y1="16" x2="48" y2="16" stroke="#143AFF" stroke-width="2"/>
-          <line x1="32" y1="4" x2="32" y2="60" stroke="#00C1D4" stroke-width="1" stroke-dasharray="4 3"/>
-          <line x1="4" y1="32" x2="60" y2="32" stroke="#00C1D4" stroke-width="1" stroke-dasharray="4 3"/>
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <polygon points="40,10 70,65 10,65" stroke="#143AFF" stroke-width="2.5" fill="#e8f0ff"/>
+          <line x1="40" y1="10" x2="40" y2="65" stroke="#00C1D4" stroke-width="1.5" stroke-dasharray="4 3"/>
         </svg>
-        <span>CAD render will appear here</span>
-        <span style="font-size:11px;margin-top:4px;">Replace src in &lt;img id="render-img"&gt;</span>
+        <span style="margin-top:8px;">Triangular column — 2 folds</span>
+        <span style="font-size:11px;margin-top:4px;">(Replace with CAD render: set src on &lt;img id="render-img"&gt;)</span>
       </div>
-      <p class="render-label">Top view — example valid solution (3 folds shown)</p>
 
-      <!-- Constraints -->
-      <h3 style="margin-top:8px;">Your task</h3>
-      <p style="font-size:14px;">Using the pre-lined A4 sheet you have received, fold a standing structure that meets all conditions:</p>
+      <!-- Production flag -->
+      <div style="background:#fff3cd;border-left:4px solid #e8a000;border-radius:8px;padding:18px 22px;margin:8px 0 24px;">
+        <p style="font-size:14px;font-weight:600;color:#7a4f00;margin:0 0 6px;">⚠️ Production Flag</p>
+        <p style="font-size:14px;color:#5a3a00;margin:0;">
+          This part has been flagged by production: the press brake tooling configuration for this batch
+          does not support exactly 2 bends per workpiece. All other numbers of bends are within spec.
+        </p>
+      </div>
+
+      <h3>Your task</h3>
+      <p style="font-size:14px;">Redesign the bracket using the A4 sheet of paper provided. Your solution must still:</p>
       <div class="constraint-box">
         <ul>
-          <li>All outer faces must be <strong>flat</strong> (no curved surfaces)</li>
-          <li>All outer faces must be <strong>equal width</strong></li>
-          <li>Only <strong>one fold angle</strong> is allowed throughout</li>
-          <li>The full <strong>height of the sheet</strong> must be used</li>
-          <li>The structure must <strong>support an A5 sheet</strong> placed flat on top</li>
+          <li>Be able to <strong>support an A5 sheet placed flat on top</strong></li>
+          <li>Use <strong>any number of folds except 2</strong></li>
         </ul>
       </div>
 
-      <div class="input-group" style="margin-top:28px;">
-
-      </div>
-
       <div class="btn-row">
-        <button class="btn btn-primary" onclick="goToScreen(1)">Start task →</button>
+        <button class="btn btn-primary" onclick="goToScreen(1)">Start redesign →</button>
       </div>
     </div>
   </div>
 
-  <!-- SCREEN 1: Build + record -->
+  <!-- SCREEN 1: Build -->
   <div class="screen" id="screen-1">
     <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
       <div class="step-indicator">
         <div class="step-dot done"></div>
         <div class="step-dot active"></div>
         <div class="step-dot"></div>
-        <div class="step-dot"></div>
       </div>
-      <h2>Step 1 — Build your structure</h2>
+      <h2>Build your redesign</h2>
       <div class="accent-line"></div>
-      <p>Use the pre-lined A4 sheet to fold your structure now. When you are done, record what you made below.</p>
+      <p>Use the A4 sheet of paper to fold your redesigned bracket now. Remember:</p>
 
-      <div class="input-group" style="margin-top:24px;">
-        <label>How many folds did you make?</label>
+      <div class="constraint-box">
+        <ul>
+          <li>Must <strong>support an A5 sheet flat on top</strong></li>
+          <li><strong>Any number of folds except 2</strong></li>
+        </ul>
+      </div>
+
+      <p style="font-size:14px;color:#555;margin-top:8px;">Take your time. When you are happy with your structure, move on to record your response.</p>
+
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="goToScreen(0)">← Back</button>
+        <button class="btn btn-primary" onclick="goToScreen(2)">Done — record my response →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: Record + Submit -->
+  <div class="screen" id="screen-2">
+    <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
+      <div class="step-indicator">
+        <div class="step-dot done"></div>
+        <div class="step-dot done"></div>
+        <div class="step-dot active"></div>
+      </div>
+      <h2>Record your response</h2>
+      <div class="accent-line"></div>
+
+      <div class="input-group">
+        <label>How many folds does your redesign use?</label>
         <div class="folds-selector" id="folds-made-selector">
           <div class="fold-option" onclick="selectFold('made',1,this)"><span class="fold-num">1</span></div>
-          <div class="fold-option" onclick="selectFold('made',2,this)"><span class="fold-num">2</span></div>
           <div class="fold-option" onclick="selectFold('made',3,this)"><span class="fold-num">3</span></div>
           <div class="fold-option" onclick="selectFold('made',4,this)"><span class="fold-num">4</span></div>
           <div class="fold-option" onclick="selectFold('made',5,this)"><span class="fold-num">5+</span></div>
@@ -661,12 +476,12 @@
       </div>
 
       <div class="input-group">
-        <label>Describe your structure in one sentence</label>
-        <textarea id="description" placeholder="Describe what you made and why you chose that design." rows="2"></textarea>
+        <label>Why did you choose this number of folds?</label>
+        <textarea id="description" placeholder="Describe your reasoning — cost, stability, simplicity…" rows="3"></textarea>
       </div>
 
       <div class="input-group">
-        <label>How confident are you that your solution satisfies all conditions?</label>
+        <label>How confident are you that your redesign satisfies all conditions?</label>
         <div class="rating-row" id="confidence-rating">
           <button class="rating-btn" onclick="selectRating('confidence',1,this)">1 — Not at all</button>
           <button class="rating-btn" onclick="selectRating('confidence',2,this)">2</button>
@@ -677,110 +492,35 @@
         <p class="error-msg" id="confidence-error">Please rate your confidence.</p>
       </div>
 
-      <div class="btn-row">
-        <button class="btn btn-outline" onclick="goToScreen(0)">← Back</button>
-        <button class="btn btn-primary" onclick="goToScreen(2)">Next →</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCREEN 2: Minimum estimation -->
-  <div class="screen" id="screen-2">
-    <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
-      <div class="step-indicator">
-        <div class="step-dot done"></div>
-        <div class="step-dot done"></div>
-        <div class="step-dot active"></div>
-        <div class="step-dot"></div>
-      </div>
-      <h2>Step 2 — Reflect</h2>
-      <div class="accent-line"></div>
-
-      <p>Think about the task from scratch — starting from a flat A4 sheet.</p>
-
-      <div class="input-group" style="margin-top:20px;">
-        <label>What is the minimum number of folds needed to produce a valid solution?</label>
-        <div class="folds-selector" id="folds-min-selector">
-          <div class="fold-option" onclick="selectFold('min',1,this)"><span class="fold-num">1</span></div>
-          <div class="fold-option" onclick="selectFold('min',2,this)"><span class="fold-num">2</span></div>
-          <div class="fold-option" onclick="selectFold('min',3,this)"><span class="fold-num">3</span></div>
-          <div class="fold-option" onclick="selectFold('min',4,this)"><span class="fold-num">4</span></div>
-          <div class="fold-option" onclick="selectFold('min',5,this)"><span class="fold-num">5+</span></div>
-        </div>
-        <p class="error-msg" id="folds-min-error">Please select your estimate.</p>
-      </div>
-
       <div class="input-group">
-        <label>What shape does the minimum solution produce?</label>
-        <select id="min-shape">
-          <option value="">— select —</option>
-          <option value="1fold">1 fold</option>
-          <option value="2folds">2 folds</option>
-          <option value="3folds">3 folds</option>
-          <option value="4folds">4 folds</option>
-          <option value="other">Other</option>
-        </select>
+        <label>Would you have designed differently if the cost per fold was shown from the start?</label>
+        <textarea id="reflection" placeholder="Your thoughts…" rows="2"></textarea>
       </div>
 
-      <div class="input-group">
-        <label>Would you change your design if cost per fold was shown upfront? Why?</label>
-        <textarea id="reflection" placeholder="Your thoughts..." rows="3"></textarea>
-      </div>
+      <p style="font-size:13px;color:#888;margin-top:8px;">Your response is saved anonymously for research purposes.</p>
 
       <div class="btn-row">
         <button class="btn btn-outline" onclick="goToScreen(1)">← Back</button>
-        <button class="btn btn-primary" onclick="goToScreen(3)">Next →</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCREEN 3: Submit -->
-  <div class="screen" id="screen-3">
-    <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
-      <div class="step-indicator">
-        <div class="step-dot done"></div>
-        <div class="step-dot done"></div>
-        <div class="step-dot done"></div>
-        <div class="step-dot active"></div>
-      </div>
-      <h2>Submit your response</h2>
-      <div class="accent-line"></div>
-
-      <div id="summary-box" style="background:var(--gray);border-radius:10px;padding:20px 24px;margin-bottom:24px;font-size:14px;line-height:2;">
-      </div>
-
-      <p style="font-size:13px;color:#888;">Your response will be saved anonymously for research purposes.</p>
-
-      <div class="btn-row">
-        <button class="btn btn-outline" onclick="goToScreen(2)">← Back</button>
         <button class="btn btn-turquoise" id="submit-btn" onclick="submitResponse()">Submit response</button>
       </div>
-
       <p class="error-msg" id="submit-error" style="display:none;margin-top:12px;">Submission failed. Please try again.</p>
     </div>
   </div>
 
-  <!-- SCREEN 4: Thank you -->
-  <div class="screen" id="screen-4">
-    <div style="max-width:720px;margin:0 auto;padding:40px 24px 60px">
+  <!-- SCREEN 3: Thank you -->
+  <div class="screen" id="screen-3">
+    <div style="max-width:720px;margin:0 auto;padding:60px 24px">
       <div class="thank-you-box">
         <h2>Thank you! 🎉</h2>
-        <p style="margin-top:12px;">Your response has been recorded.<br>We will discuss the results together shortly.</p>
+        <p style="margin-top:12px;">Your redesign has been recorded.<br>We will discuss the results together shortly.</p>
       </div>
       <div style="margin-top:32px;background:var(--gray);border-radius:10px;padding:20px 24px;">
-        <h3>Did you know?</h3>
-        <p style="font-size:14px;margin-top:8px;">
-          Research by Adams et al. (2021, <em>Nature</em>) shows that people systematically
-          overlook subtractive solutions — even when they are simpler and cheaper.
-          The minimum valid solution to this task requires only <strong>1 fold</strong>.
-          At 1,000 units, choosing 3 folds over 1 fold costs an extra <strong>€1,700</strong> per 1,000 units.
-        </p>
+        <p style="font-size:13px;color:#888;margin:0;">You can close this tab or wait for the group discussion.</p>
       </div>
     </div>
   </div>
 
 </div><!-- /student-view -->
-
 
 <!-- ══════════════════════════════════════════════════════════ -->
 <!-- HOST PANEL                                                 -->
@@ -801,44 +541,38 @@
       <button class="btn btn-sm" style="background:#eee;color:#555;" onclick="resetData()">🗑 Reset all responses</button>
     </div>
 
-    <!-- Stats -->
-    <div class="stats-grid" id="stats-grid">
+    <div class="stats-grid">
       <div class="stat-card"><span class="stat-num" id="stat-total">0</span><span class="stat-label">Responses</span></div>
       <div class="stat-card"><span class="stat-num" id="stat-avg">—</span><span class="stat-label">Avg folds made</span></div>
       <div class="stat-card"><span class="stat-num" id="stat-avg-min">—</span><span class="stat-label">Avg estimated minimum</span></div>
       <div class="stat-card"><span class="stat-num" id="stat-bias">—</span><span class="stat-label">Avg bias score (made − min)</span></div>
     </div>
 
-    <!-- Bar chart -->
     <h3 style="margin-bottom:12px;">Distribution — folds made</h3>
-    <div class="bar-chart" id="bar-chart">
-      <div class="bar-row"><div class="bar-row-label">1 fold</div><div class="bar-track"><div class="bar-fill" id="bar-1" style="width:0%">0</div></div></div>
-      <div class="bar-row"><div class="bar-row-label">2 folds</div><div class="bar-track"><div class="bar-fill" id="bar-2" style="width:0%">0</div></div></div>
-      <div class="bar-row"><div class="bar-row-label">3 folds</div><div class="bar-track"><div class="bar-fill" id="bar-3" style="width:0%">0</div></div></div>
-      <div class="bar-row"><div class="bar-row-label">4 folds</div><div class="bar-track"><div class="bar-fill" id="bar-4" style="width:0%">0</div></div></div>
-      <div class="bar-row"><div class="bar-row-label">5+ folds</div><div class="bar-track"><div class="bar-fill" id="bar-5" style="width:0%">0</div></div></div>
+    <div class="bar-chart">
+      <div class="bar-row"><div class="bar-row-label">1 fold</div><div class="bar-track"><div class="bar-fill" id="bar-1" style="width:0%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-label">3 folds</div><div class="bar-track"><div class="bar-fill" id="bar-3" style="width:0%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-label">4 folds</div><div class="bar-track"><div class="bar-fill" id="bar-4" style="width:0%"></div></div></div>
+      <div class="bar-row"><div class="bar-row-label">5+ folds</div><div class="bar-track"><div class="bar-fill" id="bar-5" style="width:0%"></div></div></div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- Responses table -->
     <h3 style="margin-bottom:12px;">All responses</h3>
     <div style="overflow-x:auto;">
       <table class="responses-table">
         <thead>
           <tr>
             <th>#</th>
-            <th>Name / ID</th>
             <th>Folds made</th>
-            <th>Est. minimum</th>
-            <th>Bias</th>
             <th>Confidence</th>
-            <th>Description</th>
+            <th>Reasoning</th>
+            <th>Reflection</th>
             <th>Time</th>
           </tr>
         </thead>
         <tbody id="responses-tbody">
-          <tr><td colspan="8" style="text-align:center;color:#aaa;padding:20px;">No responses yet</td></tr>
+          <tr><td colspan="6" style="text-align:center;color:#aaa;padding:20px;">No responses yet</td></tr>
         </tbody>
       </table>
     </div>
@@ -847,15 +581,11 @@
 
 
 <script>
-// ══════════════════════════════════════════════════════════════
-// CONFIG — paste your Supabase credentials here
-// ══════════════════════════════════════════════════════════════
-const SUPABASE_URL  = 'YOUR_SUPABASE_URL';    // e.g. https://xxxx.supabase.co
-const SUPABASE_KEY  = 'YOUR_SUPABASE_ANON_KEY';
-const GAME_KEY      = 'odce_folding_task_v1';
-const TABLE         = 'folding_responses';
+const SUPABASE_URL = 'https://uyynxszpmtwfxmnwirjn.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_urtblTmp0Y9ikKCBm-Forg_azXo9iQ6';
+const GAME_KEY     = 'odce_folding_task_v1';
+const TABLE        = 'folding_responses';
 
-// ── Supabase client ──
 let db = null;
 try {
   const { createClient } = supabase;
@@ -864,22 +594,14 @@ try {
   console.warn('Supabase not configured — running in localStorage mode');
 }
 
-// ══════════════════════════════════════════════════════════════
-// STATE
-// ══════════════════════════════════════════════════════════════
 const state = {
   nickname: 'anonymous',
   foldsMade: null,
-  foldsMin: null,
-  minShape: '',
   description: '',
   confidence: null,
   reflection: ''
 };
 
-// ══════════════════════════════════════════════════════════════
-// ROUTING — host vs student
-// ══════════════════════════════════════════════════════════════
 window.addEventListener('DOMContentLoaded', () => {
   const isHost = new URLSearchParams(window.location.search).get('host') === 'true';
   if (isHost) {
@@ -887,8 +609,6 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('host-view').style.display = 'block';
     initHostPanel();
   }
-
-  // Show render image if src is set
   const img = document.getElementById('render-img');
   if (img.src && img.src !== window.location.href) {
     img.style.display = 'block';
@@ -896,104 +616,59 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ══════════════════════════════════════════════════════════════
-// SCREEN NAVIGATION
-// ══════════════════════════════════════════════════════════════
 let currentScreen = 0;
 
 function goToScreen(n) {
   if (n > currentScreen && !validateScreen(currentScreen)) return;
-
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + n).classList.add('active');
   currentScreen = n;
   window.scrollTo(0, 0);
-
-  if (n === 3) buildSummary();
 }
 
 function validateScreen(n) {
   let ok = true;
-  if (n === 0) {
-    const nick = document.getElementById('nickname').value.trim();
-    if (!nick) { showError('nick-error'); ok = false; }
-    else { state.nickname = nick; hideError('nick-error'); }
-  }
-  if (n === 1) {
+  if (n === 2) {
     if (!state.foldsMade) { showError('folds-made-error'); ok = false; }
     else hideError('folds-made-error');
     if (!state.confidence) { showError('confidence-error'); ok = false; }
     else hideError('confidence-error');
     state.description = document.getElementById('description').value.trim();
-  }
-  if (n === 2) {
-    if (!state.foldsMin) { showError('folds-min-error'); ok = false; }
-    else hideError('folds-min-error');
-    state.minShape  = document.getElementById('min-shape').value;
-    state.reflection = document.getElementById('reflection').value.trim();
+    state.reflection  = document.getElementById('reflection').value.trim();
   }
   return ok;
 }
 
-function showError(id) {
-  const el = document.getElementById(id);
-  if (el) el.style.display = 'block';
-}
-function hideError(id) {
-  const el = document.getElementById(id);
-  if (el) el.style.display = 'none';
-}
+function showError(id) { const el = document.getElementById(id); if (el) el.style.display = 'block'; }
+function hideError(id) { const el = document.getElementById(id); if (el) el.style.display = 'none'; }
 
-// ══════════════════════════════════════════════════════════════
-// SELECTORS
-// ══════════════════════════════════════════════════════════════
 function selectFold(type, val, el) {
-  const container = el.parentElement;
-  container.querySelectorAll('.fold-option').forEach(o => o.classList.remove('selected'));
+  el.parentElement.querySelectorAll('.fold-option').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
   if (type === 'made') state.foldsMade = val;
-  if (type === 'min')  state.foldsMin  = val;
 }
 
 function selectRating(type, val, el) {
-  const container = el.parentElement;
-  container.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('selected'));
+  el.parentElement.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
   if (type === 'confidence') state.confidence = val;
 }
 
-// ══════════════════════════════════════════════════════════════
-// SUMMARY
-// ══════════════════════════════════════════════════════════════
-const shapeNames = { 1:'1 fold', 2:'2 folds', 3:'3 folds', 4:'4 folds', 5:'5+ folds' };
-
-function buildSummary() {
-  const box = document.getElementById('summary-box');
-  box.innerHTML = `
-    <strong>Name:</strong> ${state.nickname}<br>
-    <strong>Folds made:</strong> ${state.foldsMade} — ${shapeNames[state.foldsMade] || state.foldsMade}<br>
-    <strong>Est. minimum:</strong> ${state.foldsMin} fold${state.foldsMin > 1 ? 's' : ''}<br>
-    <strong>Bias score:</strong> ${state.foldsMade - state.foldsMin > 0 ? '+' : ''}${state.foldsMade - state.foldsMin} folds above minimum<br>
-    <strong>Confidence:</strong> ${state.confidence} / 5<br>
-    ${state.description ? `<strong>Description:</strong> ${state.description}` : ''}
-  `;
-}
-
-// ══════════════════════════════════════════════════════════════
-// SUBMIT
-// ══════════════════════════════════════════════════════════════
 async function submitResponse() {
   const btn = document.getElementById('submit-btn');
   btn.disabled = true;
   btn.textContent = 'Submitting...';
 
+  state.description = document.getElementById('description').value.trim();
+  state.reflection  = document.getElementById('reflection').value.trim();
+
   const payload = {
     game_key:    GAME_KEY,
     nickname:    state.nickname,
     folds_made:  state.foldsMade,
-    folds_min:   state.foldsMin,
-    bias_score:  state.foldsMade - state.foldsMin,
-    min_shape:   state.minShape,
+    folds_min:   null,
+    bias_score:  null,
+    min_shape:   null,
     description: state.description,
     confidence:  state.confidence,
     reflection:  state.reflection,
@@ -1002,15 +677,14 @@ async function submitResponse() {
 
   let saved = false;
 
-  // Try Supabase
-  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+  if (db) {
     try {
       const { error } = await db.from(TABLE).insert(payload);
       if (!error) saved = true;
+      else console.error('Supabase insert error:', error);
     } catch(e) { console.warn('Supabase error', e); }
   }
 
-  // Fallback: localStorage
   if (!saved) {
     const existing = JSON.parse(localStorage.getItem(GAME_KEY) || '[]');
     existing.push(payload);
@@ -1019,7 +693,7 @@ async function submitResponse() {
   }
 
   if (saved) {
-    goToScreen(4);
+    goToScreen(3);
   } else {
     document.getElementById('submit-error').style.display = 'block';
     btn.disabled = false;
@@ -1027,86 +701,61 @@ async function submitResponse() {
   }
 }
 
-// ══════════════════════════════════════════════════════════════
-// HOST PANEL
-// ══════════════════════════════════════════════════════════════
 function initHostPanel() {
   loadResponses();
-
-  // Real-time if Supabase configured
-  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+  if (db) {
     db.channel('folding-responses')
-      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: TABLE }, () => {
-        loadResponses();
-      })
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: TABLE }, () => loadResponses())
       .subscribe();
   } else {
-    // Poll localStorage every 5s
     setInterval(loadResponses, 5000);
   }
 }
 
 async function loadResponses() {
   let data = [];
-
-  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
-    const { data: rows } = await db.from(TABLE)
-      .select('*')
-      .eq('game_key', GAME_KEY)
-      .order('created_at', { ascending: true });
+  if (db) {
+    const { data: rows } = await db.from(TABLE).select('*').eq('game_key', GAME_KEY).order('created_at', { ascending: true });
     data = rows || [];
   } else {
     data = JSON.parse(localStorage.getItem(GAME_KEY) || '[]');
   }
-
   renderHostPanel(data);
-  document.getElementById('host-last-update').textContent =
-    'Last updated: ' + new Date().toLocaleTimeString();
+  document.getElementById('host-last-update').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
 }
 
 function renderHostPanel(data) {
-  // Stats
   document.getElementById('stat-total').textContent = data.length;
   if (data.length > 0) {
     const avgMade = data.reduce((s,r) => s + (r.folds_made||0), 0) / data.length;
-    const avgMin  = data.reduce((s,r) => s + (r.folds_min||0), 0) / data.length;
-    const avgBias = data.reduce((s,r) => s + (r.bias_score||0), 0) / data.length;
-    document.getElementById('stat-avg').textContent     = avgMade.toFixed(1);
-    document.getElementById('stat-avg-min').textContent = avgMin.toFixed(1);
-    document.getElementById('stat-bias').textContent    = (avgBias >= 0 ? '+' : '') + avgBias.toFixed(1);
+    document.getElementById('stat-avg').textContent = avgMade.toFixed(1);
+    document.getElementById('stat-avg-min').textContent = '—';
+    document.getElementById('stat-bias').textContent = '—';
   }
 
-  // Bar chart
-  [1,2,3,4,5].forEach(n => {
+  [1,3,4,5].forEach(n => {
     const count = data.filter(r => r.folds_made === n).length;
     const pct   = data.length > 0 ? (count / data.length * 100) : 0;
     const bar   = document.getElementById('bar-' + n);
     if (bar) {
-      bar.style.width = Math.max(pct, pct > 0 ? 4 : 0) + '%';
+      bar.style.width = (pct > 0 ? Math.max(pct, 4) : 0) + '%';
       bar.textContent = count > 0 ? count : '';
     }
   });
 
-  // Table
   const tbody = document.getElementById('responses-tbody');
   if (data.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:#aaa;padding:20px;">No responses yet</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#aaa;padding:20px;">No responses yet</td></tr>';
     return;
   }
-
-  const badgeClass = {1:'badge-tent',2:'badge-tri',3:'badge-sq',4:'badge-pent'};
-
+  const badgeClass = {1:'badge-tent',3:'badge-sq',4:'badge-pent'};
   tbody.innerHTML = data.map((r, i) => `
     <tr>
       <td>${i+1}</td>
-      <td>${r.nickname || '—'}</td>
       <td><span class="badge ${badgeClass[r.folds_made]||'badge-other'}">${r.folds_made} fold${r.folds_made!==1?'s':''}</span></td>
-      <td>${r.folds_min ?? '—'}</td>
-      <td style="color:${r.bias_score>0?'#c0392b':r.bias_score<0?'#27ae60':'#888'};font-weight:600;">
-        ${r.bias_score > 0 ? '+' : ''}${r.bias_score ?? '—'}
-      </td>
       <td>${r.confidence ?? '—'}/5</td>
       <td style="max-width:200px;font-size:12px;color:#666;">${r.description || '—'}</td>
+      <td style="max-width:200px;font-size:12px;color:#666;">${r.reflection || '—'}</td>
       <td style="font-size:11px;color:#aaa;">${r.created_at ? new Date(r.created_at).toLocaleTimeString() : '—'}</td>
     </tr>
   `).join('');
@@ -1118,15 +767,10 @@ function copyStudentLink() {
 }
 
 function exportCSV() {
-  let data = [];
-  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
-    alert('Export from Supabase dashboard: Table Editor → folding_responses → Export');
-    return;
-  }
-  data = JSON.parse(localStorage.getItem(GAME_KEY) || '[]');
+  if (db) { alert('Export from Supabase dashboard: Table Editor → folding_responses → Export'); return; }
+  const data = JSON.parse(localStorage.getItem(GAME_KEY) || '[]');
   if (!data.length) { alert('No data to export.'); return; }
-
-  const headers = ['nickname','folds_made','folds_min','bias_score','min_shape','confidence','description','reflection','created_at'];
+  const headers = ['folds_made','confidence','description','reflection','created_at'];
   const csv = [headers.join(','), ...data.map(r => headers.map(h => JSON.stringify(r[h]??'')).join(','))].join('\n');
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
@@ -1136,7 +780,7 @@ function exportCSV() {
 
 function resetData() {
   if (!confirm('Reset ALL responses? This cannot be undone.')) return;
-  if (db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+  if (db) {
     db.from(TABLE).delete().eq('game_key', GAME_KEY).then(() => loadResponses());
   } else {
     localStorage.removeItem(GAME_KEY);
